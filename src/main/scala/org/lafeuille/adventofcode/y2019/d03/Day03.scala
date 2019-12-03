@@ -38,7 +38,7 @@ object Day03Part1 extends App {
   def allPositions(moves: List[Move], position: Position = Position()) = {
     @scala.annotation.tailrec
     def rec(moves: List[Move], current: Position, positions: Set[Position]): Set[Position] = moves match {
-      case Nil => positions + position - Position()
+      case Nil => positions + current - position
       case move :: tail => rec(tail, move.apply(current), positions + current)
     }
 
